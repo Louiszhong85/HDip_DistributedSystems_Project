@@ -3,8 +3,8 @@
 
 package grpc.ca.loginService;
 
-public interface CheckinResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:CheckinResponse)
+public interface StampOutResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:StampOutResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

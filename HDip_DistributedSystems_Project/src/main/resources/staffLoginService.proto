@@ -8,8 +8,8 @@ option java_outer_classname = "UserServiceImpl";
 service UserService{
 	rpc login(LoginRequest) returns (LoginResponse){}
 	rpc logout(LogoutRequest) returns (LogoutResponse){}
-	rpc checkin(CheckinRequest) returns (LogoutResponse){}
-	rpc checkout(CheckoutRequest) returns (CheckoutResponse){}
+	rpc stampIn(StampInRequest) returns (StampInResponse){}
+	rpc stampOut(StampOutRequest) returns (StampOutResponse){}
 	
 }
 
@@ -32,19 +32,19 @@ message LogoutResponse{
 	int32 responseCode = 2;
 }
 
-message CheckinRequest{
-	string loginTime = 1;
+message StampInRequest{
+	string username = 1;
 }
 
-message CheckinResponse{
-	string responseMessage =1;
+message StampInResponse{
+	string responseMessage =2;
 }
 
-message CheckoutRequest{
-	string LogoutTime =1;
+message StampOutRequest{
+	string username = 1;
 }
 
-message CheckoutResponse{
+message StampOutResponse{
 	string responseMessage =1;
 }
 message Empty{}

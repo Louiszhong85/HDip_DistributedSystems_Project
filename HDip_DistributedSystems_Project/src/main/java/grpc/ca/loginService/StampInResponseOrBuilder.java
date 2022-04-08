@@ -3,16 +3,16 @@
 
 package grpc.ca.loginService;
 
-public interface CheckoutResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:CheckoutResponse)
+public interface StampInResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:StampInResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string responseMessage = 1;</code>
+   * <code>string responseMessage = 2;</code>
    */
   java.lang.String getResponseMessage();
   /**
-   * <code>string responseMessage = 1;</code>
+   * <code>string responseMessage = 2;</code>
    */
   com.google.protobuf.ByteString
       getResponseMessageBytes();

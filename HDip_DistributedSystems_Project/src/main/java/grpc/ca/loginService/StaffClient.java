@@ -1,7 +1,5 @@
 package grpc.ca.loginService;
 
-
-
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -18,10 +16,11 @@ public class StaffClient {
 		//Create Request messages for use within the main method
 		LoginRequest loginRequest = LoginRequest.newBuilder().setUsername("Enda").setPassword("Dublin").build();
 		LogoutRequest logoutRequest = LogoutRequest.newBuilder().setUsername("Enda").build();
-
+		StampInRequest stampInRequest = StampInRequest.newBuilder().setUsername("Enda").build();
+		StampOutRequest stampOutRequest = StampOutRequest.newBuilder().setUsername("Enda").build();
 		//Call the login RPC from within main
-		LoginResponse response = blockingStub.login(loginRequest);
-		System.out.println("Response from Server: " + response);
+		//LoginResponse response = blockingStub.login(loginRequest);
+		//System.out.println("Response from Server: " + response);
 
 		//Call the logout RPC from within main
 		//LogoutResponse responseOut = blockingStub.logout(logoutRequest);
@@ -32,6 +31,12 @@ public class StaffClient {
 
 		//Call the logout RPC from logout() method
 		//logout();
+	
+		//StampInResponse response = blockingStub.stampIn(stampInRequest);
+		//System.out.println("Response from Server: " + response);
+		
+		StampOutResponse response = blockingStub.stampOut(stampOutRequest);
+		System.out.println("Response from Server: " + response);
 	}
 
 	//Login
@@ -55,4 +60,15 @@ public class StaffClient {
 
 		System.out.println("Response from Server: " + response);
 	}
+	
+	public static void stampIn() {
+		System.out.println("Inside Login in Client: ");
+
+		StampInRequest loginRequest = StampInRequest.newBuilder().setUsername("Enda").build();
+
+		StampInResponse response = blockingStub.stampIn(loginRequest);
+
+		System.out.println("Response from Server: " + response);
+	}
 }
+

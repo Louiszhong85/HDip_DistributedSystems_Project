@@ -4,19 +4,19 @@
 package grpc.ca.loginService;
 
 /**
- * Protobuf type {@code CheckoutRequest}
+ * Protobuf type {@code StampOutRequest}
  */
-public  final class CheckoutRequest extends
+public  final class StampOutRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:CheckoutRequest)
-    CheckoutRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:StampOutRequest)
+    StampOutRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use CheckoutRequest.newBuilder() to construct.
-  private CheckoutRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use StampOutRequest.newBuilder() to construct.
+  private StampOutRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private CheckoutRequest() {
-    logoutTime_ = "";
+  private StampOutRequest() {
+    username_ = "";
   }
 
   @java.lang.Override
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CheckoutRequest(
+  private StampOutRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -46,7 +46,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            logoutTime_ = s;
+            username_ = s;
             break;
           }
           default: {
@@ -70,45 +70,45 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return grpc.ca.loginService.UserServiceImpl.internal_static_CheckoutRequest_descriptor;
+    return grpc.ca.loginService.UserServiceImpl.internal_static_StampOutRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return grpc.ca.loginService.UserServiceImpl.internal_static_CheckoutRequest_fieldAccessorTable
+    return grpc.ca.loginService.UserServiceImpl.internal_static_StampOutRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            grpc.ca.loginService.CheckoutRequest.class, grpc.ca.loginService.CheckoutRequest.Builder.class);
+            grpc.ca.loginService.StampOutRequest.class, grpc.ca.loginService.StampOutRequest.Builder.class);
   }
 
-  public static final int LOGOUTTIME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object logoutTime_;
+  public static final int USERNAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object username_;
   /**
-   * <code>string LogoutTime = 1;</code>
+   * <code>string username = 1;</code>
    */
-  public java.lang.String getLogoutTime() {
-    java.lang.Object ref = logoutTime_;
+  public java.lang.String getUsername() {
+    java.lang.Object ref = username_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      logoutTime_ = s;
+      username_ = s;
       return s;
     }
   }
   /**
-   * <code>string LogoutTime = 1;</code>
+   * <code>string username = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getLogoutTimeBytes() {
-    java.lang.Object ref = logoutTime_;
+      getUsernameBytes() {
+    java.lang.Object ref = username_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      logoutTime_ = b;
+      username_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -129,8 +129,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getLogoutTimeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, logoutTime_);
+    if (!getUsernameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, username_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,8 +141,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getLogoutTimeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, logoutTime_);
+    if (!getUsernameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, username_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -154,14 +154,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof grpc.ca.loginService.CheckoutRequest)) {
+    if (!(obj instanceof grpc.ca.loginService.StampOutRequest)) {
       return super.equals(obj);
     }
-    grpc.ca.loginService.CheckoutRequest other = (grpc.ca.loginService.CheckoutRequest) obj;
+    grpc.ca.loginService.StampOutRequest other = (grpc.ca.loginService.StampOutRequest) obj;
 
     boolean result = true;
-    result = result && getLogoutTime()
-        .equals(other.getLogoutTime());
+    result = result && getUsername()
+        .equals(other.getUsername());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -173,76 +173,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + LOGOUTTIME_FIELD_NUMBER;
-    hash = (53 * hash) + getLogoutTime().hashCode();
+    hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+    hash = (53 * hash) + getUsername().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static grpc.ca.loginService.CheckoutRequest parseFrom(
+  public static grpc.ca.loginService.StampOutRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.ca.loginService.CheckoutRequest parseFrom(
+  public static grpc.ca.loginService.StampOutRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.ca.loginService.CheckoutRequest parseFrom(
+  public static grpc.ca.loginService.StampOutRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.ca.loginService.CheckoutRequest parseFrom(
+  public static grpc.ca.loginService.StampOutRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.ca.loginService.CheckoutRequest parseFrom(byte[] data)
+  public static grpc.ca.loginService.StampOutRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.ca.loginService.CheckoutRequest parseFrom(
+  public static grpc.ca.loginService.StampOutRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.ca.loginService.CheckoutRequest parseFrom(java.io.InputStream input)
+  public static grpc.ca.loginService.StampOutRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static grpc.ca.loginService.CheckoutRequest parseFrom(
+  public static grpc.ca.loginService.StampOutRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static grpc.ca.loginService.CheckoutRequest parseDelimitedFrom(java.io.InputStream input)
+  public static grpc.ca.loginService.StampOutRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static grpc.ca.loginService.CheckoutRequest parseDelimitedFrom(
+  public static grpc.ca.loginService.StampOutRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static grpc.ca.loginService.CheckoutRequest parseFrom(
+  public static grpc.ca.loginService.StampOutRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static grpc.ca.loginService.CheckoutRequest parseFrom(
+  public static grpc.ca.loginService.StampOutRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -255,7 +255,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(grpc.ca.loginService.CheckoutRequest prototype) {
+  public static Builder newBuilder(grpc.ca.loginService.StampOutRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -271,26 +271,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code CheckoutRequest}
+   * Protobuf type {@code StampOutRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:CheckoutRequest)
-      grpc.ca.loginService.CheckoutRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:StampOutRequest)
+      grpc.ca.loginService.StampOutRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return grpc.ca.loginService.UserServiceImpl.internal_static_CheckoutRequest_descriptor;
+      return grpc.ca.loginService.UserServiceImpl.internal_static_StampOutRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return grpc.ca.loginService.UserServiceImpl.internal_static_CheckoutRequest_fieldAccessorTable
+      return grpc.ca.loginService.UserServiceImpl.internal_static_StampOutRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              grpc.ca.loginService.CheckoutRequest.class, grpc.ca.loginService.CheckoutRequest.Builder.class);
+              grpc.ca.loginService.StampOutRequest.class, grpc.ca.loginService.StampOutRequest.Builder.class);
     }
 
-    // Construct using grpc.ca.loginService.CheckoutRequest.newBuilder()
+    // Construct using grpc.ca.loginService.StampOutRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -308,7 +308,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      logoutTime_ = "";
+      username_ = "";
 
       return this;
     }
@@ -316,17 +316,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return grpc.ca.loginService.UserServiceImpl.internal_static_CheckoutRequest_descriptor;
+      return grpc.ca.loginService.UserServiceImpl.internal_static_StampOutRequest_descriptor;
     }
 
     @java.lang.Override
-    public grpc.ca.loginService.CheckoutRequest getDefaultInstanceForType() {
-      return grpc.ca.loginService.CheckoutRequest.getDefaultInstance();
+    public grpc.ca.loginService.StampOutRequest getDefaultInstanceForType() {
+      return grpc.ca.loginService.StampOutRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public grpc.ca.loginService.CheckoutRequest build() {
-      grpc.ca.loginService.CheckoutRequest result = buildPartial();
+    public grpc.ca.loginService.StampOutRequest build() {
+      grpc.ca.loginService.StampOutRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -334,9 +334,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public grpc.ca.loginService.CheckoutRequest buildPartial() {
-      grpc.ca.loginService.CheckoutRequest result = new grpc.ca.loginService.CheckoutRequest(this);
-      result.logoutTime_ = logoutTime_;
+    public grpc.ca.loginService.StampOutRequest buildPartial() {
+      grpc.ca.loginService.StampOutRequest result = new grpc.ca.loginService.StampOutRequest(this);
+      result.username_ = username_;
       onBuilt();
       return result;
     }
@@ -375,18 +375,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof grpc.ca.loginService.CheckoutRequest) {
-        return mergeFrom((grpc.ca.loginService.CheckoutRequest)other);
+      if (other instanceof grpc.ca.loginService.StampOutRequest) {
+        return mergeFrom((grpc.ca.loginService.StampOutRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(grpc.ca.loginService.CheckoutRequest other) {
-      if (other == grpc.ca.loginService.CheckoutRequest.getDefaultInstance()) return this;
-      if (!other.getLogoutTime().isEmpty()) {
-        logoutTime_ = other.logoutTime_;
+    public Builder mergeFrom(grpc.ca.loginService.StampOutRequest other) {
+      if (other == grpc.ca.loginService.StampOutRequest.getDefaultInstance()) return this;
+      if (!other.getUsername().isEmpty()) {
+        username_ = other.username_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -404,11 +404,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      grpc.ca.loginService.CheckoutRequest parsedMessage = null;
+      grpc.ca.loginService.StampOutRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (grpc.ca.loginService.CheckoutRequest) e.getUnfinishedMessage();
+        parsedMessage = (grpc.ca.loginService.StampOutRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -418,71 +418,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object logoutTime_ = "";
+    private java.lang.Object username_ = "";
     /**
-     * <code>string LogoutTime = 1;</code>
+     * <code>string username = 1;</code>
      */
-    public java.lang.String getLogoutTime() {
-      java.lang.Object ref = logoutTime_;
+    public java.lang.String getUsername() {
+      java.lang.Object ref = username_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        logoutTime_ = s;
+        username_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string LogoutTime = 1;</code>
+     * <code>string username = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getLogoutTimeBytes() {
-      java.lang.Object ref = logoutTime_;
+        getUsernameBytes() {
+      java.lang.Object ref = username_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        logoutTime_ = b;
+        username_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string LogoutTime = 1;</code>
+     * <code>string username = 1;</code>
      */
-    public Builder setLogoutTime(
+    public Builder setUsername(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      logoutTime_ = value;
+      username_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string LogoutTime = 1;</code>
+     * <code>string username = 1;</code>
      */
-    public Builder clearLogoutTime() {
+    public Builder clearUsername() {
       
-      logoutTime_ = getDefaultInstance().getLogoutTime();
+      username_ = getDefaultInstance().getUsername();
       onChanged();
       return this;
     }
     /**
-     * <code>string LogoutTime = 1;</code>
+     * <code>string username = 1;</code>
      */
-    public Builder setLogoutTimeBytes(
+    public Builder setUsernameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      logoutTime_ = value;
+      username_ = value;
       onChanged();
       return this;
     }
@@ -499,41 +499,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:CheckoutRequest)
+    // @@protoc_insertion_point(builder_scope:StampOutRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:CheckoutRequest)
-  private static final grpc.ca.loginService.CheckoutRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:StampOutRequest)
+  private static final grpc.ca.loginService.StampOutRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new grpc.ca.loginService.CheckoutRequest();
+    DEFAULT_INSTANCE = new grpc.ca.loginService.StampOutRequest();
   }
 
-  public static grpc.ca.loginService.CheckoutRequest getDefaultInstance() {
+  public static grpc.ca.loginService.StampOutRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<CheckoutRequest>
-      PARSER = new com.google.protobuf.AbstractParser<CheckoutRequest>() {
+  private static final com.google.protobuf.Parser<StampOutRequest>
+      PARSER = new com.google.protobuf.AbstractParser<StampOutRequest>() {
     @java.lang.Override
-    public CheckoutRequest parsePartialFrom(
+    public StampOutRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CheckoutRequest(input, extensionRegistry);
+      return new StampOutRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<CheckoutRequest> parser() {
+  public static com.google.protobuf.Parser<StampOutRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<CheckoutRequest> getParserForType() {
+  public com.google.protobuf.Parser<StampOutRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public grpc.ca.loginService.CheckoutRequest getDefaultInstanceForType() {
+  public grpc.ca.loginService.StampOutRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

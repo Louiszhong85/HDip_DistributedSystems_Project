@@ -1,8 +1,9 @@
 package grpc.ca.loginService;
 
 
-
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import grpc.ca.loginService.UserServiceGrpc.UserServiceImplBase;
 import io.grpc.Server;
@@ -46,7 +47,7 @@ public class StaffServer extends UserServiceImplBase{
 		LoginResponse.Builder response = LoginResponse.newBuilder();
 		System.out.println("username = " + username + ", password = " + password);
 
-		if(username.equals("John") && password.equals("Dublin")) {
+		if(username.equals("Enda") && password.equals("Dublin")) {
 			// return Success response
 			response.setResponseCode(1).setResponseMessage(username + ".....Successfully logged in");
 		}
@@ -83,6 +84,49 @@ public class StaffServer extends UserServiceImplBase{
 		responseObserver.onNext(response.build());
 		responseObserver.onCompleted();
 	}
+	
+	@Override
+	public void stampIn(StampInRequest request, StreamObserver<StampInResponse> responseObserver) {
+		System.out.println("Inside UserService:Stamp In");
+		String username = request.getUsername();
+	    String stampTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
+
+		StampInResponse.Builder response = StampInResponse.newBuilder();
+		System.out.println("username = " + username);
+
+		if(username.equals("Enda")) {
+			// return Success response
+			response.setResponseMessage(username + " Successfully Stamp in " + stampTime);
+		}
+		else {
+			// return Success response
+			response.setResponseMessage(username + "... Sorry Stamp Failed");
+		}
+
+		responseObserver.onNext(response.build());
+		responseObserver.onCompleted();
+	}
+	
+	@Override
+	public void stampOut(StampOutRequest request, StreamObserver<StampOutResponse> responseObserver) {
+		System.out.println("Inside UserService:Stamp In");
+		String username = request.getUsername();
+	    String stampTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
+
+		StampOutResponse.Builder response = StampOutResponse.newBuilder();
+		System.out.println("username = " + username);
+
+		if(username.equals("Enda")) {
+			// return Success response
+			response.setResponseMessage(username + " Thank you! You Successfully Stamp Out " + stampTime);
+		}
+		else {
+			// return Success response
+			response.setResponseMessage(username + "... Sorry Stamp Failed");
+		}
+
+		responseObserver.onNext(response.build());
+		responseObserver.onCompleted();
+	}
 
 }//class
-

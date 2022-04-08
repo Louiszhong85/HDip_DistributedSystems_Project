@@ -91,68 +91,68 @@ public final class UserServiceGrpc {
      return getLogoutMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<grpc.ca.loginService.CheckinRequest,
-      grpc.ca.loginService.LogoutResponse> getCheckinMethod;
+  private static volatile io.grpc.MethodDescriptor<grpc.ca.loginService.StampInRequest,
+      grpc.ca.loginService.StampInResponse> getStampInMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "checkin",
-      requestType = grpc.ca.loginService.CheckinRequest.class,
-      responseType = grpc.ca.loginService.LogoutResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "stampIn",
+      requestType = grpc.ca.loginService.StampInRequest.class,
+      responseType = grpc.ca.loginService.StampInResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<grpc.ca.loginService.CheckinRequest,
-      grpc.ca.loginService.LogoutResponse> getCheckinMethod() {
-    io.grpc.MethodDescriptor<grpc.ca.loginService.CheckinRequest, grpc.ca.loginService.LogoutResponse> getCheckinMethod;
-    if ((getCheckinMethod = UserServiceGrpc.getCheckinMethod) == null) {
+  public static io.grpc.MethodDescriptor<grpc.ca.loginService.StampInRequest,
+      grpc.ca.loginService.StampInResponse> getStampInMethod() {
+    io.grpc.MethodDescriptor<grpc.ca.loginService.StampInRequest, grpc.ca.loginService.StampInResponse> getStampInMethod;
+    if ((getStampInMethod = UserServiceGrpc.getStampInMethod) == null) {
       synchronized (UserServiceGrpc.class) {
-        if ((getCheckinMethod = UserServiceGrpc.getCheckinMethod) == null) {
-          UserServiceGrpc.getCheckinMethod = getCheckinMethod = 
-              io.grpc.MethodDescriptor.<grpc.ca.loginService.CheckinRequest, grpc.ca.loginService.LogoutResponse>newBuilder()
+        if ((getStampInMethod = UserServiceGrpc.getStampInMethod) == null) {
+          UserServiceGrpc.getStampInMethod = getStampInMethod = 
+              io.grpc.MethodDescriptor.<grpc.ca.loginService.StampInRequest, grpc.ca.loginService.StampInResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "UserService", "checkin"))
+                  "UserService", "stampIn"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.ca.loginService.CheckinRequest.getDefaultInstance()))
+                  grpc.ca.loginService.StampInRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.ca.loginService.LogoutResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("checkin"))
+                  grpc.ca.loginService.StampInResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("stampIn"))
                   .build();
           }
         }
      }
-     return getCheckinMethod;
+     return getStampInMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<grpc.ca.loginService.CheckoutRequest,
-      grpc.ca.loginService.CheckoutResponse> getCheckoutMethod;
+  private static volatile io.grpc.MethodDescriptor<grpc.ca.loginService.StampOutRequest,
+      grpc.ca.loginService.StampOutResponse> getStampOutMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "checkout",
-      requestType = grpc.ca.loginService.CheckoutRequest.class,
-      responseType = grpc.ca.loginService.CheckoutResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "stampOut",
+      requestType = grpc.ca.loginService.StampOutRequest.class,
+      responseType = grpc.ca.loginService.StampOutResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<grpc.ca.loginService.CheckoutRequest,
-      grpc.ca.loginService.CheckoutResponse> getCheckoutMethod() {
-    io.grpc.MethodDescriptor<grpc.ca.loginService.CheckoutRequest, grpc.ca.loginService.CheckoutResponse> getCheckoutMethod;
-    if ((getCheckoutMethod = UserServiceGrpc.getCheckoutMethod) == null) {
+  public static io.grpc.MethodDescriptor<grpc.ca.loginService.StampOutRequest,
+      grpc.ca.loginService.StampOutResponse> getStampOutMethod() {
+    io.grpc.MethodDescriptor<grpc.ca.loginService.StampOutRequest, grpc.ca.loginService.StampOutResponse> getStampOutMethod;
+    if ((getStampOutMethod = UserServiceGrpc.getStampOutMethod) == null) {
       synchronized (UserServiceGrpc.class) {
-        if ((getCheckoutMethod = UserServiceGrpc.getCheckoutMethod) == null) {
-          UserServiceGrpc.getCheckoutMethod = getCheckoutMethod = 
-              io.grpc.MethodDescriptor.<grpc.ca.loginService.CheckoutRequest, grpc.ca.loginService.CheckoutResponse>newBuilder()
+        if ((getStampOutMethod = UserServiceGrpc.getStampOutMethod) == null) {
+          UserServiceGrpc.getStampOutMethod = getStampOutMethod = 
+              io.grpc.MethodDescriptor.<grpc.ca.loginService.StampOutRequest, grpc.ca.loginService.StampOutResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "UserService", "checkout"))
+                  "UserService", "stampOut"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.ca.loginService.CheckoutRequest.getDefaultInstance()))
+                  grpc.ca.loginService.StampOutRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.ca.loginService.CheckoutResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("checkout"))
+                  grpc.ca.loginService.StampOutResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("stampOut"))
                   .build();
           }
         }
      }
-     return getCheckoutMethod;
+     return getStampOutMethod;
   }
 
   /**
@@ -198,16 +198,16 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public void checkin(grpc.ca.loginService.CheckinRequest request,
-        io.grpc.stub.StreamObserver<grpc.ca.loginService.LogoutResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getCheckinMethod(), responseObserver);
+    public void stampIn(grpc.ca.loginService.StampInRequest request,
+        io.grpc.stub.StreamObserver<grpc.ca.loginService.StampInResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getStampInMethod(), responseObserver);
     }
 
     /**
      */
-    public void checkout(grpc.ca.loginService.CheckoutRequest request,
-        io.grpc.stub.StreamObserver<grpc.ca.loginService.CheckoutResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getCheckoutMethod(), responseObserver);
+    public void stampOut(grpc.ca.loginService.StampOutRequest request,
+        io.grpc.stub.StreamObserver<grpc.ca.loginService.StampOutResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getStampOutMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -227,19 +227,19 @@ public final class UserServiceGrpc {
                 grpc.ca.loginService.LogoutResponse>(
                   this, METHODID_LOGOUT)))
           .addMethod(
-            getCheckinMethod(),
+            getStampInMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                grpc.ca.loginService.CheckinRequest,
-                grpc.ca.loginService.LogoutResponse>(
-                  this, METHODID_CHECKIN)))
+                grpc.ca.loginService.StampInRequest,
+                grpc.ca.loginService.StampInResponse>(
+                  this, METHODID_STAMP_IN)))
           .addMethod(
-            getCheckoutMethod(),
+            getStampOutMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                grpc.ca.loginService.CheckoutRequest,
-                grpc.ca.loginService.CheckoutResponse>(
-                  this, METHODID_CHECKOUT)))
+                grpc.ca.loginService.StampOutRequest,
+                grpc.ca.loginService.StampOutResponse>(
+                  this, METHODID_STAMP_OUT)))
           .build();
     }
   }
@@ -280,18 +280,18 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public void checkin(grpc.ca.loginService.CheckinRequest request,
-        io.grpc.stub.StreamObserver<grpc.ca.loginService.LogoutResponse> responseObserver) {
+    public void stampIn(grpc.ca.loginService.StampInRequest request,
+        io.grpc.stub.StreamObserver<grpc.ca.loginService.StampInResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getCheckinMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getStampInMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void checkout(grpc.ca.loginService.CheckoutRequest request,
-        io.grpc.stub.StreamObserver<grpc.ca.loginService.CheckoutResponse> responseObserver) {
+    public void stampOut(grpc.ca.loginService.StampOutRequest request,
+        io.grpc.stub.StreamObserver<grpc.ca.loginService.StampOutResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getCheckoutMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getStampOutMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -329,16 +329,16 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public grpc.ca.loginService.LogoutResponse checkin(grpc.ca.loginService.CheckinRequest request) {
+    public grpc.ca.loginService.StampInResponse stampIn(grpc.ca.loginService.StampInRequest request) {
       return blockingUnaryCall(
-          getChannel(), getCheckinMethod(), getCallOptions(), request);
+          getChannel(), getStampInMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public grpc.ca.loginService.CheckoutResponse checkout(grpc.ca.loginService.CheckoutRequest request) {
+    public grpc.ca.loginService.StampOutResponse stampOut(grpc.ca.loginService.StampOutRequest request) {
       return blockingUnaryCall(
-          getChannel(), getCheckoutMethod(), getCallOptions(), request);
+          getChannel(), getStampOutMethod(), getCallOptions(), request);
     }
   }
 
@@ -378,25 +378,25 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<grpc.ca.loginService.LogoutResponse> checkin(
-        grpc.ca.loginService.CheckinRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<grpc.ca.loginService.StampInResponse> stampIn(
+        grpc.ca.loginService.StampInRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getCheckinMethod(), getCallOptions()), request);
+          getChannel().newCall(getStampInMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<grpc.ca.loginService.CheckoutResponse> checkout(
-        grpc.ca.loginService.CheckoutRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<grpc.ca.loginService.StampOutResponse> stampOut(
+        grpc.ca.loginService.StampOutRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getCheckoutMethod(), getCallOptions()), request);
+          getChannel().newCall(getStampOutMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_LOGIN = 0;
   private static final int METHODID_LOGOUT = 1;
-  private static final int METHODID_CHECKIN = 2;
-  private static final int METHODID_CHECKOUT = 3;
+  private static final int METHODID_STAMP_IN = 2;
+  private static final int METHODID_STAMP_OUT = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -423,13 +423,13 @@ public final class UserServiceGrpc {
           serviceImpl.logout((grpc.ca.loginService.LogoutRequest) request,
               (io.grpc.stub.StreamObserver<grpc.ca.loginService.LogoutResponse>) responseObserver);
           break;
-        case METHODID_CHECKIN:
-          serviceImpl.checkin((grpc.ca.loginService.CheckinRequest) request,
-              (io.grpc.stub.StreamObserver<grpc.ca.loginService.LogoutResponse>) responseObserver);
+        case METHODID_STAMP_IN:
+          serviceImpl.stampIn((grpc.ca.loginService.StampInRequest) request,
+              (io.grpc.stub.StreamObserver<grpc.ca.loginService.StampInResponse>) responseObserver);
           break;
-        case METHODID_CHECKOUT:
-          serviceImpl.checkout((grpc.ca.loginService.CheckoutRequest) request,
-              (io.grpc.stub.StreamObserver<grpc.ca.loginService.CheckoutResponse>) responseObserver);
+        case METHODID_STAMP_OUT:
+          serviceImpl.stampOut((grpc.ca.loginService.StampOutRequest) request,
+              (io.grpc.stub.StreamObserver<grpc.ca.loginService.StampOutResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -494,8 +494,8 @@ public final class UserServiceGrpc {
               .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
               .addMethod(getLoginMethod())
               .addMethod(getLogoutMethod())
-              .addMethod(getCheckinMethod())
-              .addMethod(getCheckoutMethod())
+              .addMethod(getStampInMethod())
+              .addMethod(getStampOutMethod())
               .build();
         }
       }
