@@ -75,7 +75,7 @@ public final class UserServiceImpl {
       "\n\010username\030\001 \001(\t\"?\n\016LogoutResponse\022\027\n\017re" +
       "sponseMessage\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(" +
       "\005\"\"\n\016StampInRequest\022\020\n\010username\030\001 \001(\t\"*\n" +
-      "\017StampInResponse\022\027\n\017responseMessage\030\002 \001(" +
+      "\017StampInResponse\022\027\n\017responseMessage\030\001 \001(" +
       "\t\"#\n\017StampOutRequest\022\020\n\010username\030\001 \001(\t\"+" +
       "\n\020StampOutResponse\022\027\n\017responseMessage\030\001 " +
       "\001(\t\"\007\n\005Empty2\307\001\n\013UserService\022(\n\005login\022\r." +

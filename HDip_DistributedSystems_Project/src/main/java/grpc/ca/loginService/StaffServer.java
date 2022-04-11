@@ -118,7 +118,7 @@ public class StaffServer extends UserServiceImplBase{
 
 		if(username.equals("Enda")) {
 			// return Success response
-			response.setResponseMessage(username + " Thank you! You Successfully Stamp Out " + stampTime);
+			response.setResponseMessage(username + " Thank you! You Successfully Stamp Out " + stampTime + " Enjoy your off time!");
 		}
 		else {
 			// return Success response

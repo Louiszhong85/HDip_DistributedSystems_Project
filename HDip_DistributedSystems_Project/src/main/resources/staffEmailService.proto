@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "grpc.ca.mail";
+option java_outer_classname = "StaffMailImpl";
+
+
+service UserService{
+	rpc staffAgenda(stream AgendaRequest) returns (AgendaResponse){}
+	rpc staffMail(StaffMailRequest) returns (stream StaffMailResponse){}
+	
+}
+
+message AgendaRequest{
+	string username = 1;
+}
+
+message AgendaResponse{
+	string responseMessage = 1;
+}
+
+message StaffMailRequest{
+	string username = 1;
+}
+
+message StaffMailResponse{
+	string responseMessage = 1;
+}
+

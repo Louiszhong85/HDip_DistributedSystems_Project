@@ -37,7 +37,7 @@ message StampInRequest{
 }
 
 message StampInResponse{
-	string responseMessage =2;
+	string responseMessage =1;
 }
 
 message StampOutRequest{
