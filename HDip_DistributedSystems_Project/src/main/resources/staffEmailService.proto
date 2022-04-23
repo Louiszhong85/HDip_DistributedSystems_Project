@@ -6,24 +6,25 @@ option java_outer_classname = "StaffMailImpl";
 
 
 service UserService{
-	rpc staffAgenda(stream AgendaRequest) returns (AgendaResponse){}
-	rpc staffMail(StaffMailRequest) returns (stream StaffMailResponse){}
+	rpc staffMail(staffMailRequest) returns (stream staffMailResponse){}
+	rpc staffAgenda(stream agendaRequest) returns (agendaResponse){}
 	
 }
 
-message AgendaRequest{
+message staffMailRequest{
 	string username = 1;
 }
 
-message AgendaResponse{
+message staffMailResponse{
 	string responseMessage = 1;
 }
 
-message StaffMailRequest{
+message agendaRequest {
+
 	string username = 1;
+	
 }
+message agendaResponse {
 
-message StaffMailResponse{
 	string responseMessage = 1;
 }
-

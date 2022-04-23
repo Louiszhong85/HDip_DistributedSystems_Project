@@ -15,25 +15,25 @@ public final class StaffMailImpl {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AgendaRequest_descriptor;
+    internal_static_staffMailRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AgendaRequest_fieldAccessorTable;
+      internal_static_staffMailRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_AgendaResponse_descriptor;
+    internal_static_staffMailResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_AgendaResponse_fieldAccessorTable;
+      internal_static_staffMailResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_StaffMailRequest_descriptor;
+    internal_static_agendaRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_StaffMailRequest_fieldAccessorTable;
+      internal_static_agendaRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_StaffMailResponse_descriptor;
+    internal_static_agendaResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_StaffMailResponse_fieldAccessorTable;
+      internal_static_agendaResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -43,14 +43,14 @@ public final class StaffMailImpl {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\027staffEmailService.proto\"!\n\rAgendaReque" +
-      "st\022\020\n\010username\030\001 \001(\t\")\n\016AgendaResponse\022\027" +
-      "\n\017responseMessage\030\001 \001(\t\"$\n\020StaffMailRequ" +
-      "est\022\020\n\010username\030\001 \001(\t\",\n\021StaffMailRespon" +
+      "\n\027staffEmailService.proto\"$\n\020staffMailRe" +
+      "quest\022\020\n\010username\030\001 \001(\t\",\n\021staffMailResp" +
+      "onse\022\027\n\017responseMessage\030\001 \001(\t\"!\n\ragendaR" +
+      "equest\022\020\n\010username\030\001 \001(\t\")\n\016agendaRespon" +
       "se\022\027\n\017responseMessage\030\001 \001(\t2y\n\013UserServi" +
-      "ce\0222\n\013staffAgenda\022\016.AgendaRequest\032\017.Agen" +
-      "daResponse\"\000(\001\0226\n\tstaffMail\022\021.StaffMailR" +
-      "equest\032\022.StaffMailResponse\"\0000\001B\037\n\014grpc.c" +
+      "ce\0226\n\tstaffMail\022\021.staffMailRequest\032\022.sta" +
+      "ffMailResponse\"\0000\001\0222\n\013staffAgenda\022\016.agen" +
+      "daRequest\032\017.agendaResponse\"\000(\001B\037\n\014grpc.c" +
       "a.mailB\rStaffMailImplP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
@@ -65,29 +65,29 @@ public final class StaffMailImpl {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_AgendaRequest_descriptor =
+    internal_static_staffMailRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_AgendaRequest_fieldAccessorTable = new
+    internal_static_staffMailRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AgendaRequest_descriptor,
+        internal_static_staffMailRequest_descriptor,
         new java.lang.String[] { "Username", });
-    internal_static_AgendaResponse_descriptor =
+    internal_static_staffMailResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_AgendaResponse_fieldAccessorTable = new
+    internal_static_staffMailResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_AgendaResponse_descriptor,
+        internal_static_staffMailResponse_descriptor,
         new java.lang.String[] { "ResponseMessage", });
-    internal_static_StaffMailRequest_descriptor =
+    internal_static_agendaRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_StaffMailRequest_fieldAccessorTable = new
+    internal_static_agendaRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_StaffMailRequest_descriptor,
+        internal_static_agendaRequest_descriptor,
         new java.lang.String[] { "Username", });
-    internal_static_StaffMailResponse_descriptor =
+    internal_static_agendaResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_StaffMailResponse_fieldAccessorTable = new
+    internal_static_agendaResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_StaffMailResponse_descriptor,
+        internal_static_agendaResponse_descriptor,
         new java.lang.String[] { "ResponseMessage", });
   }
 
