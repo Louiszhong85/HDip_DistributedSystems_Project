@@ -80,6 +80,7 @@ public class MailServer{
 
 			@Override
 			public void onNext(agendaRequest value) {
+				
 			System.out.println("On Server; message received from client " + value.getUsername());
 				
 			}

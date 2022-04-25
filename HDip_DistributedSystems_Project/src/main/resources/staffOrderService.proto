@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "grpc.ca.order";
+option java_outer_classname = "OrderService";
+
+
+service UserService{
+    rpc orderQuery(orderQueryRequest) returns (orderQueryResponse){}
+    rpc orderEdit(stream orderUpdateRequest) returns (stream orderUpdateResponse){}
+
+}
+
+message orderQueryRequest{
+}
+
+message orderQueryResponse{
+    string responseMessage = 1;
+}
+
+message orderUpdateRequest{
+    uint32 orderId = 1;
+    string orderName = 2;
+    float price = 3;
+}
+
+message orderUpdateResponse{
+    string responseMessage = 1;
+}
