@@ -59,30 +59,30 @@ public final class UserServiceGrpc {
      return getStaffMailMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<grpc.ca.mail.agendaRequest,
-      grpc.ca.mail.agendaResponse> getStaffAgendaMethod;
+  private static volatile io.grpc.MethodDescriptor<grpc.ca.mail.containsString,
+      grpc.ca.mail.containsString> getStaffAgendaMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "staffAgenda",
-      requestType = grpc.ca.mail.agendaRequest.class,
-      responseType = grpc.ca.mail.agendaResponse.class,
+      requestType = grpc.ca.mail.containsString.class,
+      responseType = grpc.ca.mail.containsString.class,
       methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-  public static io.grpc.MethodDescriptor<grpc.ca.mail.agendaRequest,
-      grpc.ca.mail.agendaResponse> getStaffAgendaMethod() {
-    io.grpc.MethodDescriptor<grpc.ca.mail.agendaRequest, grpc.ca.mail.agendaResponse> getStaffAgendaMethod;
+  public static io.grpc.MethodDescriptor<grpc.ca.mail.containsString,
+      grpc.ca.mail.containsString> getStaffAgendaMethod() {
+    io.grpc.MethodDescriptor<grpc.ca.mail.containsString, grpc.ca.mail.containsString> getStaffAgendaMethod;
     if ((getStaffAgendaMethod = UserServiceGrpc.getStaffAgendaMethod) == null) {
       synchronized (UserServiceGrpc.class) {
         if ((getStaffAgendaMethod = UserServiceGrpc.getStaffAgendaMethod) == null) {
           UserServiceGrpc.getStaffAgendaMethod = getStaffAgendaMethod = 
-              io.grpc.MethodDescriptor.<grpc.ca.mail.agendaRequest, grpc.ca.mail.agendaResponse>newBuilder()
+              io.grpc.MethodDescriptor.<grpc.ca.mail.containsString, grpc.ca.mail.containsString>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "UserService", "staffAgenda"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.ca.mail.agendaRequest.getDefaultInstance()))
+                  grpc.ca.mail.containsString.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  grpc.ca.mail.agendaResponse.getDefaultInstance()))
+                  grpc.ca.mail.containsString.getDefaultInstance()))
                   .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("staffAgenda"))
                   .build();
           }
@@ -119,6 +119,9 @@ public final class UserServiceGrpc {
   public static abstract class UserServiceImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     *Server Streaming
+     * </pre>
      */
     public void staffMail(grpc.ca.mail.staffMailRequest request,
         io.grpc.stub.StreamObserver<grpc.ca.mail.staffMailResponse> responseObserver) {
@@ -126,9 +129,12 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *client Streaming
+     * </pre>
      */
-    public io.grpc.stub.StreamObserver<grpc.ca.mail.agendaRequest> staffAgenda(
-        io.grpc.stub.StreamObserver<grpc.ca.mail.agendaResponse> responseObserver) {
+    public io.grpc.stub.StreamObserver<grpc.ca.mail.containsString> staffAgenda(
+        io.grpc.stub.StreamObserver<grpc.ca.mail.containsString> responseObserver) {
       return asyncUnimplementedStreamingCall(getStaffAgendaMethod(), responseObserver);
     }
 
@@ -145,8 +151,8 @@ public final class UserServiceGrpc {
             getStaffAgendaMethod(),
             asyncClientStreamingCall(
               new MethodHandlers<
-                grpc.ca.mail.agendaRequest,
-                grpc.ca.mail.agendaResponse>(
+                grpc.ca.mail.containsString,
+                grpc.ca.mail.containsString>(
                   this, METHODID_STAFF_AGENDA)))
           .build();
     }
@@ -171,6 +177,9 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Server Streaming
+     * </pre>
      */
     public void staffMail(grpc.ca.mail.staffMailRequest request,
         io.grpc.stub.StreamObserver<grpc.ca.mail.staffMailResponse> responseObserver) {
@@ -179,9 +188,12 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *client Streaming
+     * </pre>
      */
-    public io.grpc.stub.StreamObserver<grpc.ca.mail.agendaRequest> staffAgenda(
-        io.grpc.stub.StreamObserver<grpc.ca.mail.agendaResponse> responseObserver) {
+    public io.grpc.stub.StreamObserver<grpc.ca.mail.containsString> staffAgenda(
+        io.grpc.stub.StreamObserver<grpc.ca.mail.containsString> responseObserver) {
       return asyncClientStreamingCall(
           getChannel().newCall(getStaffAgendaMethod(), getCallOptions()), responseObserver);
     }
@@ -206,6 +218,9 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     *Server Streaming
+     * </pre>
      */
     public java.util.Iterator<grpc.ca.mail.staffMailResponse> staffMail(
         grpc.ca.mail.staffMailRequest request) {
@@ -269,7 +284,7 @@ public final class UserServiceGrpc {
       switch (methodId) {
         case METHODID_STAFF_AGENDA:
           return (io.grpc.stub.StreamObserver<Req>) serviceImpl.staffAgenda(
-              (io.grpc.stub.StreamObserver<grpc.ca.mail.agendaResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<grpc.ca.mail.containsString>) responseObserver);
         default:
           throw new AssertionError();
       }

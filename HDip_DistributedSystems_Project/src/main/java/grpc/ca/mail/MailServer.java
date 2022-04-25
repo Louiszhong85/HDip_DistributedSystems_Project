@@ -7,6 +7,7 @@ import io.grpc.stub.StreamObserver;
 
 import grpc.ca.mail.UserServiceGrpc.UserServiceImplBase;
 
+
 public class MailServer{
 	
 	private Server server;
@@ -73,15 +74,14 @@ public class MailServer{
 	
 	}	
 	//client Stream 
-	public StreamObserver<agendaRequest> staffAgenda(StreamObserver<agendaResponse> responseObserver){
+	public StreamObserver<containsString> staffAgenda(StreamObserver<containsString> responseObserver){
 		System.out.println("On Server; inside the streaming method ");
 		
-		return new StreamObserver<agendaRequest>() {
+		return new StreamObserver<containsString>() {
 
 			@Override
-			public void onNext(agendaRequest value) {
-				
-			System.out.println("On Server; message received from client " + value.getUsername());
+			public void onNext(containsString value) {
+				System.out.println("On Server; message received from client " + value.getFirstString());
 				
 			}
 
@@ -95,9 +95,9 @@ public class MailServer{
 			public void onCompleted() {
 				// TODO Auto-generated method stub
 				//
-				agendaResponse.Builder responseBuilder = agendaResponse.newBuilder();
+				containsString.Builder responseBuilder = containsString.newBuilder();
 				
-				responseBuilder.setResponseMessage("Server says it has got your  complete message: ");
+				responseBuilder.setFirstString("Server says it has got your  complete message: ");
 				
 				responseObserver.onNext(responseBuilder.build());
 				responseObserver.onCompleted();
@@ -107,6 +107,7 @@ public class MailServer{
 	
 	
 }
+
 
 
 

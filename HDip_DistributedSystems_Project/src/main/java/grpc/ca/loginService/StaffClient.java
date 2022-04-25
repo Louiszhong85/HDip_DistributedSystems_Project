@@ -14,26 +14,11 @@ public class StaffClient {
 		blockingStub = UserServiceGrpc.newBlockingStub(channel);
 
 		//Create Request messages for use within the main method
-		LoginRequest loginRequest = LoginRequest.newBuilder().setUsername("Enda").setPassword("Dublin").build();
+		LoginRequest loginRequest = LoginRequest.newBuilder().setUsername("Enda").setPassword("123456").build();
 		LogoutRequest logoutRequest = LogoutRequest.newBuilder().setUsername("Enda").build();
 		StampInRequest stampInRequest = StampInRequest.newBuilder().setUsername("Enda").build();
 		StampOutRequest stampOutRequest = StampOutRequest.newBuilder().setUsername("Enda").build();
-		//Call the login RPC from within main
-		//LoginResponse response = blockingStub.login(loginRequest);
-		//System.out.println("Response from Server: " + response);
 
-		//Call the logout RPC from within main
-		//LogoutResponse responseOut = blockingStub.logout(logoutRequest);
-		//System.out.println("Response from Server: " + responseOut);
-
-		//Call the login RPC from login() method
-		//login();
-
-		//Call the logout RPC from logout() method
-		//logout();
-	
-		//StampInResponse response = blockingStub.stampIn(stampInRequest);
-		//System.out.println("Response from Server: " + response);
 		
 		StampOutResponse response = blockingStub.stampOut(stampOutRequest);
 		System.out.println("Response from Server: " + response);
@@ -67,6 +52,16 @@ public class StaffClient {
 		StampInRequest loginRequest = StampInRequest.newBuilder().setUsername("Enda").build();
 
 		StampInResponse response = blockingStub.stampIn(loginRequest);
+
+		System.out.println("Response from Server: " + response);
+	}
+	
+	public static void stampOut() {
+		System.out.println("Inside Login in Client: ");
+
+		StampOutRequest loginRequest = StampOutRequest.newBuilder().setUsername("Enda").build();
+
+		StampOutResponse response = blockingStub.stampOut(loginRequest);
 
 		System.out.println("Response from Server: " + response);
 	}
