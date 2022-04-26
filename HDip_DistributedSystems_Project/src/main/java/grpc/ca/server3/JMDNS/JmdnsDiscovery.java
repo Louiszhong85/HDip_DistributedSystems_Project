@@ -15,7 +15,7 @@ public class JmdnsDiscovery {
 
     public JmdnsDiscovery() {
         try {
-            this.dns = JmDNS.create(InetAddress.getLocalHost());
+            this.dns = JmDNS.create(InetAddress.getLoopbackAddress());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -23,14 +23,26 @@ public class JmdnsDiscovery {
 
     private static class MyServiceListener implements ServiceListener{
 
+        private JmDNS dns;
+
+        public MyServiceListener(JmDNS dns) {
+            this.dns = dns;
+        }
+
         @Override
         public void serviceAdded(ServiceEvent event) {
             // TODO Auto-generated method stub
+            try {
+                dns.registerService(event.getInfo());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         @Override
         public void serviceRemoved(ServiceEvent event) {
             // TODO Auto-generated method stub
+            dns.unregisterService(event.getInfo());
         }
 
         @Override
@@ -42,7 +54,7 @@ public class JmdnsDiscovery {
     // registry listener
     public void run() {
         // add listener
-        dns.addServiceListener(serviceType, new MyServiceListener());
+        dns.addServiceListener(serviceType, new MyServiceListener(dns));
     }
 
     public ServiceInfo getService(String serviceName) {

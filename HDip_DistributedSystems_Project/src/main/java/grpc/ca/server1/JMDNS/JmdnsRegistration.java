@@ -13,7 +13,7 @@ public class JmdnsRegistration {
 
     public JmdnsRegistration() {
         try {
-            this.dns = JmDNS.create(InetAddress.getLocalHost());
+            this.dns = JmDNS.create(InetAddress.getLoopbackAddress());
         } catch (IOException e) {
             e.printStackTrace();
         }

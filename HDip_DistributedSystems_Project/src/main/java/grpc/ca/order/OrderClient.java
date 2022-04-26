@@ -24,18 +24,7 @@ public class OrderClient {
     private final UserServiceGrpc.UserServiceStub asyncStub;
 
     public OrderClient(String host, int port) {
-        channel = ManagedChannelBuilder.forAddress(host, port)
-                .usePlaintext()
-                .build();
-
-        blockingStub = UserServiceGrpc.newBlockingStub(channel);
-        asyncStub = UserServiceGrpc.newStub(channel);
-    }
-
-    public OrderClient(String host, int port, SslContext sslContext) {
-        channel = NettyChannelBuilder.forAddress(host, port)
-                .sslContext(sslContext)
-                .build();
+        channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
 
         blockingStub = UserServiceGrpc.newBlockingStub(channel);
         asyncStub = UserServiceGrpc.newStub(channel);
@@ -45,7 +34,7 @@ public class OrderClient {
         channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
     }
 
-    public void queryOrders() {
+    public String queryOrders() {
         orderQueryRequest request = orderQueryRequest.newBuilder().build();
         orderQueryResponse response = orderQueryResponse.getDefaultInstance();
 
@@ -53,13 +42,12 @@ public class OrderClient {
             response = blockingStub.withDeadlineAfter(5, TimeUnit.SECONDS).orderQuery(request);
         } catch (Exception e) {
             logger.log(Level.SEVERE, "request failed: " + e.getMessage());
-            return;
+            return null;
         }
-
-        logger.info("query orders: " + response.getResponseMessage());
+        return response.getResponseMessage();
     }
 
-    public void updateOrder(int[] orderIds, float[] prices) throws InterruptedException {
+    public boolean updateOrder(int[] orderIds, float[] prices) throws InterruptedException {
         CountDownLatch finishLatch = new CountDownLatch(1);
         StreamObserver<orderUpdateRequest> requestObserver = asyncStub.withDeadlineAfter(5, TimeUnit.SECONDS)
                 .orderEdit(new StreamObserver<orderUpdateResponse>() {
@@ -94,13 +82,15 @@ public class OrderClient {
         } catch (Exception e) {
             logger.log(Level.SEVERE, "unexpected error: " + e.getMessage());
             requestObserver.onError(e);
-            return;
+            return false;
         }
 
         requestObserver.onCompleted();
         if (!finishLatch.await(1, TimeUnit.MINUTES)) {
             logger.warning("request cannot finish within 1 minute");
+            return false;
         }
+        return true;
     }
 
     public static void testQueryOrder(OrderClient client) throws InterruptedException {
@@ -114,7 +104,7 @@ public class OrderClient {
     }
 
     public static void main(String[] args) throws InterruptedException, SSLException {
-        OrderClient client = new OrderClient("0.0.0.0", 50053);
+        OrderClient client = new OrderClient("127.0.0.1", 10086);
 
         try {
             testQueryOrder(client);
@@ -123,5 +113,3 @@ public class OrderClient {
         }
     }
 }
-
-

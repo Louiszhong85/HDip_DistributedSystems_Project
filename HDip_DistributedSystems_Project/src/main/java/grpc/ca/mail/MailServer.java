@@ -1,47 +1,44 @@
 package grpc.ca.mail;
 
 import java.io.IOException;
+
+import grpc.ca.server1.JMDNS.JmdnsRegistration;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
-import grpc.ca.mail.UserServiceGrpc.UserServiceImplBase;
+public class MailServer extends UserServiceGrpc.UserServiceImplBase {
 
+    private Server server;
 
-public class MailServer{
-	
-	private Server server;
-	
-	public static void main(String[] args) throws IOException, InterruptedException {
-		
-		MailServer ourServer = new MailServer();
-		ourServer.start();
-		
-	}
-	private void start() throws IOException, InterruptedException {
-		// TODO Auto-generated method stub
-		System.out.println("Starting gRPC Server!!!!!");
-		int port = 50051;
-		
-		server = ServerBuilder.forPort(port).addService(new MailServerImpl()).build().start();
-		System.out.println("Server Running on Port: " + port);
-		
-		server.awaitTermination();
-		
-	}
-	//Extend abstract base class for our own implementation
-	static class MailServerImpl extends UserServiceImplBase{
+    public static void main(String[] args) throws IOException, InterruptedException {
+        MailServer ourServer = new MailServer();
+        ourServer.start();
+    }
 
-	@Override
-	public void staffMail(staffMailRequest request, StreamObserver<staffMailResponse> responseObserver) {
-		System.out.println("Inside UserService::Logout()");
-		String username = request.getUsername();
+    private void start() throws IOException, InterruptedException {
+        int port = 10085;
+        String service_name = "mailServer";
+        JmdnsRegistration registration = new JmdnsRegistration();
+        registration.run(port, service_name);
 
-		staffMailResponse.Builder response = staffMailResponse.newBuilder();
-		System.out.println("Logging out username = " + username);
+        server = ServerBuilder.forPort(port).addService(this).build().start();
+        System.out.println("Server Running on Port: " + port);
 
-		if(username.equals("Enda")) {
-			// return Success response
+        server.awaitTermination();
+    }
+
+    @Override
+    public void staffMail(staffMailRequest request, StreamObserver<staffMailResponse> responseObserver) {
+        System.out.println("Inside UserService::Logout()");
+        String username = request.getUsername();
+
+        staffMailResponse.Builder response = staffMailResponse.newBuilder();
+        System.out.println("Logging out username = " + username);
+
+        if (username.equals("Enda")) {
+            // return Success response
 			response.setResponseMessage(username + "This is Internal mail: \n"
 					+ "sender: Louis\n"
 					+ "Would you albe help me to checke next week sale report\n "
@@ -60,55 +57,46 @@ public class MailServer{
 					+ "Regard \n"
 					+ "Sarah");
 			responseObserver.onNext(response.build());
-			
-		}
-		else {
-			// return Success response
-			response.setResponseMessage(username +
-					"... Sorry request Failed, user not logged in: " + username);
-		}
+            responseObserver.onNext(response.build());
 
-		responseObserver.onNext(response.build());
-		responseObserver.onCompleted();
-		}
-	
-	}	
-	//client Stream 
-	public StreamObserver<containsString> staffAgenda(StreamObserver<containsString> responseObserver){
-		System.out.println("On Server; inside the streaming method ");
-		
-		return new StreamObserver<containsString>() {
+        } else {
+            // return Success response
+            responseObserver.onNext(
+                    response.setResponseMessage("... Sorry request Failed, user not logged in: " + username).build());
+        }
+        responseObserver.onCompleted();
+    }
 
-			@Override
-			public void onNext(containsString value) {
-				System.out.println("On Server; message received from client " + value.getFirstString());
-				
-			}
+    @Override
+    public StreamObserver<agendaRequest> staffAgenda(StreamObserver<agendaResponse> responseObserver) {
+        return new StreamObserver<agendaRequest>() {
+            @Override
+            public void onNext(agendaRequest value) {
+                //建个数组存储周一致周五的日程
+                String username = value.getUsername();
+                System.out.println("On Server; message received from client " + username);
 
-			@Override
-			public void onError(Throwable t) {
-				// TODO Auto-generated method stub
-				
-			}
+                if (username.equals("Enda")) {
+                    // return Success response
+                    agendaResponse running = agendaResponse.newBuilder().setResponseMessage("running").build();
+                    responseObserver.onNext(running);
 
-			@Override
-			public void onCompleted() {
-				// TODO Auto-generated method stub
-				//
-				containsString.Builder responseBuilder = containsString.newBuilder();
-				
-				responseBuilder.setFirstString("Server says it has got your  complete message: ");
-				
-				responseObserver.onNext(responseBuilder.build());
-				responseObserver.onCompleted();
-				
-			}};
-	}
-	
-	
+                } else {
+                    // return Success response
+                    responseObserver.onError(
+                            Status.NOT_FOUND.withDescription("Dont have " + username + " agenda").asRuntimeException()
+                    );
+                }
+            }
+
+            @Override
+            public void onError(Throwable t) {
+            }
+
+            @Override
+            public void onCompleted() {
+                responseObserver.onCompleted();
+            }
+        };
+    }
 }
-
-
-
-
-

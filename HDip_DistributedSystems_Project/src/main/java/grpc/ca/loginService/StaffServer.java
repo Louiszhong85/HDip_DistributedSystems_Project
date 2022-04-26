@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import grpc.ca.loginService.UserServiceGrpc.UserServiceImplBase;
+import grpc.ca.server1.JMDNS.JmdnsRegistration;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -13,30 +14,21 @@ import io.grpc.stub.StreamObserver;
 public class StaffServer extends UserServiceImplBase{
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-		// TODO Auto-generated method stub
-		System.out.println("Starting gRPC Server");
-		StaffServer userserver = new StaffServer();
+		StaffServer staffServer = new StaffServer();
+		staffServer.start();
+	}
 
-		int port = 50051;
+	public void start() throws InterruptedException, IOException {
+		int port = 10084;
+		String service_name = "staffServer";
+		JmdnsRegistration registration = new JmdnsRegistration();
+		registration.run(port ,service_name);
 
-		try {
-			Server server = ServerBuilder.forPort(port)
-					.addService(userserver)
-					.build()
-					.start();
+		Server server = ServerBuilder.forPort(port).addService(this).build().start();
 
-			System.out.println("Server started with Port:" + server.getPort());
-		    server.awaitTermination();
-
-		}//try
-		catch(IOException e){
-			e.printStackTrace();
-		}
-		catch(InterruptedException e) {
-			e.printStackTrace();
-		}
-
-	}//main
+		System.out.println("Server started with Port:" + server.getPort());
+		server.awaitTermination();
+	}
 
 	@Override
 	public void login(LoginRequest request, StreamObserver<LoginResponse> responseObserver) {
@@ -100,7 +92,7 @@ public class StaffServer extends UserServiceImplBase{
 		}
 		else {
 			// return Success response
-			response.setResponseMessage(username + "... Sorry Stamp Failed");
+			response.setResponseMessage(username + "... Sorry StampIn Failed");
 		}
 
 		responseObserver.onNext(response.build());
@@ -122,7 +114,7 @@ public class StaffServer extends UserServiceImplBase{
 		}
 		else {
 			// return Success response
-			response.setResponseMessage(username + "... Sorry Stamp Failed");
+			response.setResponseMessage(username + "... Sorry StampOut Failed");
 		}
 
 		responseObserver.onNext(response.build());
