@@ -3,17 +3,11 @@ package grpc.ca.clientGUI;
 import grpc.ca.loginService.StaffClient;
 import grpc.ca.mail.MailClient;
 import grpc.ca.order.OrderClient;
-import grpc.ca.order.OrderServer;
 import grpc.ca.server1.JMDNS.JmdnsDiscovery;
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-
 import javax.jmdns.ServiceInfo;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 public class Client{
@@ -53,6 +47,7 @@ public class Client{
         panel.add( getService1JPanel() );
         panel.add( getService2JPanel() );
         panel.add( getService3JPanel() );
+        panel.add( getMentionJPanel()  );
 
         // Set size for the frame
         frame.setSize(800, 700);
@@ -69,7 +64,7 @@ public class Client{
 
         BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS);
 
-        JLabel label = new JLabel("Enter value")	;
+        JLabel label = new JLabel("Enter Value")	;
         panel.add(label);
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
         entry1 = new JTextField("",10);
@@ -149,14 +144,14 @@ public class Client{
         return panel;
 
     }
-
+    //Mail server GUI
     private JPanel getService2JPanel() {
 
         JPanel panel = new JPanel();
 
         BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS);
 
-        JLabel label = new JLabel("Enter value")	;
+        JLabel label = new JLabel("Enter Value")	;
         panel.add(label);
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
         entry2 = new JTextField("",10);
@@ -218,13 +213,14 @@ public class Client{
 
     }
 
+    //Order Server GUI
     private JPanel getService3JPanel() {
 
         JPanel panel = new JPanel();
 
         BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS);
 
-        JLabel label = new JLabel("Enter value")	;
+        JLabel label = new JLabel("Enter Value")	;
         panel.add(label);
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
         entry3 = new JTextField("",10);
@@ -286,6 +282,18 @@ public class Client{
 
         panel.setLayout(boxlayout);
 
+        return panel;
+
+    }
+    
+    private JPanel getMentionJPanel() {
+
+        JPanel panel = new JPanel();
+        JLabel label = new JLabel("For the Login service please enter Enda,Dublin"
+                + "For Other Service please Enter Enda"
+                + "For update Oder please Enter order ID:amount"
+                + "For exp 1:100,3:90,....")	;
+        panel.add(label);
         return panel;
 
     }

@@ -44,7 +44,7 @@ public class MailServer extends UserServiceGrpc.UserServiceImplBase {
 					+ "Would you albe help me to checke next week sale report\n "
 					+ "Regard \n"
 					+ "Louis");
-			
+			responseObserver.onNext(response.build());
 			response.setResponseMessage(username + "This is External mail: \n"
 					+ "sender: Louis Wong\n"
 					+ "Would you albe help me to checke my acc balance\n "
@@ -57,7 +57,7 @@ public class MailServer extends UserServiceGrpc.UserServiceImplBase {
 					+ "Regard \n"
 					+ "Sarah");
 			responseObserver.onNext(response.build());
-            responseObserver.onNext(response.build());
+            
 
         } else {
             // return Success response
@@ -72,13 +72,13 @@ public class MailServer extends UserServiceGrpc.UserServiceImplBase {
         return new StreamObserver<agendaRequest>() {
             @Override
             public void onNext(agendaRequest value) {
-                //建个数组存储周一致周五的日程
+                
                 String username = value.getUsername();
                 System.out.println("On Server; message received from client " + username);
 
                 if (username.equals("Enda")) {
                     // return Success response
-                    agendaResponse running = agendaResponse.newBuilder().setResponseMessage("running").build();
+                    agendaResponse running = agendaResponse.newBuilder().setResponseMessage("Your Agend is ").build();
                     responseObserver.onNext(running);
 
                 } else {
